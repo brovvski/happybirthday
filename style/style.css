@@ -9,6 +9,10 @@
   --text: #191919;
   --soft: #77716b;
   --accent: #9d1f36;
+  --accent-dark: #731326;
+  --accent-deep: #54101e;
+  --accent-soft: #ead8db;
+  --cream: #f7f4ef;
   --white: #ffffff;
 }
 
@@ -27,7 +31,10 @@ button {
   font: inherit;
 }
 
-/* OPENING */
+
+/* =========================
+   OPENING
+========================= */
 
 .opening {
   position: fixed;
@@ -96,13 +103,21 @@ button {
   transition: 0.25s ease;
 }
 
-.open-button:hover,
-.replay-button:hover {
-  background: var(--text);
+.open-button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
   color: var(--white);
 }
 
-/* MAIN */
+.replay-button:hover {
+  background: #f7f4ef;
+  color: #171717;
+}
+
+
+/* =========================
+   MAIN
+========================= */
 
 .main-content {
   visibility: hidden;
@@ -112,7 +127,10 @@ button {
   visibility: visible;
 }
 
-/* INTRO */
+
+/* =========================
+   INTRO
+========================= */
 
 .intro-section {
   min-height: 100vh;
@@ -138,11 +156,14 @@ button {
 
 .scroll-hint {
   margin-top: 55px;
-  color: var(--soft);
+  color: var(--accent);
   font-size: 25px;
 }
 
-/* MEMORIES */
+
+/* =========================
+   MEMORIES
+========================= */
 
 .memories-section {
   width: min(1100px, 88%);
@@ -155,6 +176,10 @@ button {
   margin-bottom: 100px;
 }
 
+.section-heading .eyebrow {
+  color: var(--accent);
+}
+
 .section-heading h2 {
   font-family: "Playfair Display", serif;
   font-weight: 500;
@@ -163,13 +188,23 @@ button {
   margin-top: 18px;
 }
 
+.section-heading h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 30px;
+}
+
 .photo-card {
   position: relative;
   width: min(68%, 620px);
   margin-bottom: 120px;
 }
 
-/* SHOW FULL PHOTOS - NO CROPPING */
+
+/* KEEP FULL ORIGINAL PHOTO — NO CROPPING */
 
 .photo-card img {
   display: block;
@@ -183,10 +218,10 @@ button {
 
 .photo-card span {
   position: absolute;
-  bottom: -28px;
+  bottom: -30px;
   font-family: "Playfair Display", serif;
   font-style: italic;
-  color: var(--soft);
+  color: var(--accent);
   font-size: 15px;
 }
 
@@ -206,7 +241,10 @@ button {
   right: 0;
 }
 
-/* LETTER */
+
+/* =========================
+   LETTER
+========================= */
 
 .letter-section {
   padding: 160px 25px;
@@ -244,18 +282,46 @@ button {
 .love-you {
   margin-top: 55px;
   font-style: italic;
+  color: #d8a0aa;
 }
 
-/* WISH TRANSITION */
+
+/* =========================
+   MAKE A WISH
+========================= */
 
 .wish-intro {
   min-height: 85vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 40px 25px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(157, 31, 54, 0.09) 0%,
+      rgba(157, 31, 54, 0.035) 35%,
+      rgba(247, 244, 239, 0) 70%
+    ),
+    var(--bg);
+}
+
+.wish-intro::before {
+  content: "♡";
+  position: absolute;
+  top: 12%;
+  font-family: serif;
+  font-size: 35px;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.wish-intro .eyebrow {
+  color: var(--accent);
 }
 
 .wish-intro h2 {
@@ -264,6 +330,7 @@ button {
   font-size: clamp(60px, 10vw, 115px);
   font-weight: 500;
   margin: 20px 0 35px;
+  color: var(--accent);
 }
 
 .wish-intro > p:not(.eyebrow) {
@@ -275,7 +342,10 @@ button {
   font-size: 13px;
 }
 
-/* CAKE */
+
+/* =========================
+   CAKE SECTION
+========================= */
 
 .section-cake {
   min-height: 100vh;
@@ -288,6 +358,14 @@ button {
   text-align: center;
   padding: 80px 20px;
   overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(157, 31, 54, 0.08),
+      transparent 60%
+    ),
+    var(--bg);
 }
 
 .cake-title {
@@ -295,6 +373,7 @@ button {
   font-size: clamp(35px, 6vw, 62px);
   font-weight: 500;
   font-style: italic;
+  color: var(--accent);
 }
 
 .cake-subtitle {
@@ -316,6 +395,9 @@ button {
   height: 180px;
 }
 
+
+/* CAKE PLATE */
+
 .plate {
   position: absolute;
   width: 290px;
@@ -324,8 +406,13 @@ button {
   bottom: 0;
   border-radius: 50%;
   background: #dedbd5;
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 5px 8px rgba(0, 0, 0, 0.12),
+    0 15px 30px rgba(0, 0, 0, 0.08);
 }
+
+
+/* RED VELVET CAKE */
 
 .layer {
   position: absolute;
@@ -333,8 +420,18 @@ button {
   width: 230px;
   height: 52px;
   border-radius: 10px;
-  background: #d6a06e;
-  box-shadow: inset 0 -8px 0 rgba(110, 55, 32, 0.1);
+
+  background:
+    linear-gradient(
+      to bottom,
+      #a8243e 0%,
+      #8f1931 48%,
+      #741326 100%
+    );
+
+  box-shadow:
+    inset 0 -8px 0 rgba(66, 5, 20, 0.15),
+    inset 0 4px 0 rgba(255, 255, 255, 0.04);
 }
 
 .layer-bottom {
@@ -343,13 +440,30 @@ button {
 
 .layer-middle {
   bottom: 72px;
-  background: #e2b07e;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #b32b45 0%,
+      #941a33 48%,
+      #761326 100%
+    );
 }
 
 .layer-top {
   bottom: 120px;
-  background: #d6a06e;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #a8243e 0%,
+      #8b172f 50%,
+      #711124 100%
+    );
 }
+
+
+/* CREAM CHEESE ICING */
 
 .icing {
   position: absolute;
@@ -358,13 +472,29 @@ button {
   width: 230px;
   height: 27px;
   border-radius: 50% 50% 35% 35%;
-  background: #fff4e8;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #fffaf3,
+      #f4e6d8
+    );
+
+  box-shadow:
+    0 3px 4px rgba(70, 30, 30, 0.08);
 }
 
 .drip {
   position: absolute;
   width: 17px;
-  background: #fff4e8;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #fffaf3,
+      #f1dfd0
+    );
+
   border-radius: 0 0 12px 12px;
   bottom: 139px;
 }
@@ -384,15 +514,32 @@ button {
   right: 42px;
 }
 
+
+/* CANDLES */
+
 .candle {
   position: absolute;
   width: 10px;
   height: 42px;
-  background: #eee7dd;
+
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #f7eee5 0px,
+      #f7eee5 6px,
+      #9d1f36 6px,
+      #9d1f36 9px
+    );
+
   border-radius: 3px;
   z-index: 5;
   transform: translateY(3px);
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
+
+
+/* FLAMES */
 
 .flame {
   position: absolute;
@@ -401,8 +548,19 @@ button {
   top: -25px;
   left: -2px;
   border-radius: 50% 50% 45% 45%;
-  background: #ffb11b;
-  box-shadow: 0 0 18px rgba(255, 155, 20, 0.75);
+
+  background:
+    radial-gradient(
+      circle at 50% 70%,
+      #fff2a8 0%,
+      #ffc342 35%,
+      #ff8a00 75%
+    );
+
+  box-shadow:
+    0 0 12px rgba(255, 170, 30, 0.75),
+    0 0 24px rgba(255, 125, 20, 0.35);
+
   transform-origin: center bottom;
   animation: flicker 0.18s infinite alternate;
 }
@@ -423,14 +581,23 @@ button {
   transition: 0.35s ease;
 }
 
+
+/* MICROPHONE BUTTON */
+
 .blow-instruction {
   margin-top: 32px;
-  padding: 12px 18px;
-  border: 1px solid #d7d1ca;
+  padding: 12px 20px;
+  border: 1px solid var(--accent);
   border-radius: 100px;
-  color: var(--soft);
+  color: var(--accent);
   cursor: pointer;
   font-size: 14px;
+  transition: 0.25s ease;
+}
+
+.blow-instruction:hover {
+  background: var(--accent);
+  color: var(--white);
 }
 
 .blown-message {
@@ -439,6 +606,7 @@ button {
   font-family: "Playfair Display", serif;
   font-style: italic;
   font-size: 24px;
+  color: var(--accent);
 }
 
 .blown-message.show {
@@ -458,7 +626,10 @@ button {
   }
 }
 
-/* FINAL */
+
+/* =========================
+   FINAL
+========================= */
 
 .final-section {
   min-height: 100vh;
@@ -502,7 +673,10 @@ button {
   margin-top: 50px;
 }
 
-/* MUSIC */
+
+/* =========================
+   MUSIC
+========================= */
 
 .music-control {
   position: fixed;
@@ -512,17 +686,21 @@ button {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  background: rgba(247, 244, 239, 0.88);
+  border: 1px solid rgba(157, 31, 54, 0.25);
+  background: rgba(247, 244, 239, 0.9);
   backdrop-filter: blur(10px);
   cursor: pointer;
   display: none;
   align-items: center;
   justify-content: center;
   font-size: 18px;
+  color: var(--accent);
 }
 
-/* EFFECTS */
+
+/* =========================
+   EFFECTS
+========================= */
 
 .confetti,
 .firework {
@@ -550,7 +728,10 @@ button {
   border-radius: 50%;
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 700px) {
 
@@ -586,6 +767,10 @@ button {
 
   .letter-text {
     line-height: 1.65;
+  }
+
+  .wish-intro::before {
+    top: 10%;
   }
 
   .cake-wrapper {
