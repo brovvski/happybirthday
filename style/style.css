@@ -169,11 +169,14 @@ button {
   margin-bottom: 120px;
 }
 
+/* SHOW FULL PHOTOS - NO CROPPING */
+
 .photo-card img {
   display: block;
   width: 100%;
-  max-height: 78vh;
-  object-fit: cover;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
   border-radius: 4px;
   box-shadow: 0 25px 70px rgba(0, 0, 0, 0.1);
 }
@@ -408,6 +411,7 @@ button {
   from {
     transform: rotate(-3deg) scale(1);
   }
+
   to {
     transform: rotate(3deg) scale(0.92);
   }
@@ -447,6 +451,7 @@ button {
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -548,6 +553,7 @@ button {
 /* MOBILE */
 
 @media (max-width: 700px) {
+
   .opening h1 {
     font-size: 15vw;
   }
